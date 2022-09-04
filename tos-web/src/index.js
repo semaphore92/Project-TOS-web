@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createStore} from 'redux';
+import { Provider } from 'react-redux';
 import './index.css';
+import './App.js';
+import App from './App.js';
+
+let store = createStore(() => { return 7 })
+
 
 class Square extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value : null,
+        };
+    }
+
     render() {
       return (
-        <button className="square">
-          {/* TODO */}
+        <button className="square" onClick={()=> this.setState({value : 'X'})}>
+            {this.state.value}
         </button>
       );
     }
@@ -14,7 +30,7 @@ class Square extends React.Component {
   
   class Board extends React.Component {
     renderSquare(i) {
-      return <Square />;
+      return <Square value = {i}/>;
     }
   
     render() {
@@ -62,5 +78,10 @@ class Square extends React.Component {
   // ========================================
   
   const root = ReactDOM.createRoot(document.getElementById("root"));
-  root.render(<Game />);
+  root.render(
+      <Provider store ={store}>
+        <App/>
+      </Provider>
+      
+  );
   
