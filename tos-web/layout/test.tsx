@@ -1,7 +1,9 @@
 import React, {useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
+import testAPi from '../components/testApi'
 
 const _Copyright = (props: unknown) => {
+    
     return (
         <Root>
             <CopyrightWrap>

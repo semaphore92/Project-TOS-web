@@ -3,12 +3,15 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
 
-import _Copyright from '../layout/test'
-import React, {useEffect, useMemo, useState } from 'react'
+import RenderTest  from '../components/testApi'
+
 
 export default function Home() {
+
   return (
-    <_Copyright/>
+    <div>
+      <RenderTest/>
+    </div>
   )
 }
 

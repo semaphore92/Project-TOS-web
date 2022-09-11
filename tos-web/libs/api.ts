@@ -11,12 +11,15 @@ const _proxy = axios.create({
     baseURL: '/proxy/api',
   })
 
+  
+
 export const api = {
     ..._api,
-    get: (url: string, config?: RequestConfig) => _api.get(url, config)
+    get: (url: string, config?: RequestConfig) => _api.get(url, config),
+    $get: (url: string, config?: RequestConfig) => _api.get(url,config).then((res) => res?.data?.data)
 }
 
 export const proxy = {
     ..._proxy,
-    get: (url: string, config?: RequestConfig) => _api.get(url, config)
+    get: (url: string, config?: RequestConfig) => _proxy.get(url, config)
 }
