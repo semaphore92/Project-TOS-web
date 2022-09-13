@@ -11,7 +11,6 @@ const _proxy = axios.create({
     baseURL: '/proxy/api',
   })
 
-  
 
 export const api = {
     ..._api,
