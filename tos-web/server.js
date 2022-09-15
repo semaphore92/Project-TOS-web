@@ -10,7 +10,7 @@ const handle = app.getRequestHandler()
 app.prepare().then(() => {
     const server = express()
 
-    server.get('/login', (res,req) => {
+    server.get('/login', (req,res) => {
         let curUrl = `${process.env.API_HOST}/api/auth/google/self/url`
         let curParams = {}
         axios
@@ -18,7 +18,10 @@ app.prepare().then(() => {
                 params: curParams,
             })
             .then(({data}) => {
+                console.log(data);
                 const url = data?.data?.url
+
+                console.log(url);
                 res.redirect(url);
             })
     })
