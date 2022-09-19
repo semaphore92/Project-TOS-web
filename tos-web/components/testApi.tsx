@@ -9,12 +9,12 @@ const renderTest = ({
     const [hello,setHello] = useState('Hello World')
 
     useEffect(() => {
-       // getTestId('testId')
+        console.log('useEffect!')
+       getTestId('testId')
     })
 
     const getTestId = useCallback(async (memId) => {
-            const data = await api.$get('/api/member/info',{
-                params:{userId : memId}
+            const data = await api.$get('/member/info/swheo',{
             })
             setHello(data)    
         },[]

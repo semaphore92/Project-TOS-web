@@ -4,7 +4,7 @@ interface RequestConfig extends AxiosRequestConfig {
 }
 
 const _api = axios.create({
-    baseURL: '/api',
+    baseURL: '/proxy/api',
   })
 
 const _proxy = axios.create({

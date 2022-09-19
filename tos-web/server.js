@@ -30,7 +30,10 @@ app.prepare().then(() => {
         '/proxy',
         createProxyMiddleware({
             target: 'http://localhost:8080',
-            secure: false
+            secure: false,
+            pathRewrite(path) {
+              return path.replace('/proxy', '')
+            }
         })
     )
 
