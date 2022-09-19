@@ -7,6 +7,9 @@ const dev = process.env.NODE_ENV !== "production"
 const app = next({dev})
 const handle = app.getRequestHandler()
 
+const { createProxyMiddleware } = require('http-proxy-middleware')
+
+
 app.prepare().then(() => {
     const server = express()
 
@@ -18,18 +21,24 @@ app.prepare().then(() => {
                 params: curParams,
             })
             .then(({data}) => {
-                console.log(data);
-                const url = data?.data?.url
-
-                console.log(url);
+                const url = data?.url
                 res.redirect(url);
             })
     })
 
+    server.use(
+        '/proxy',
+        createProxyMiddleware({
+            target: 'http://localhost:8080',
+            secure: false
+        })
+    )
+
+    server.all('*', handle)
+
     server.listen(3000, function (){
         console.log('listening on 3000')
     });
-
 })
 
 

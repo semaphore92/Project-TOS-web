@@ -9,7 +9,7 @@ const renderTest = ({
     const [hello,setHello] = useState('Hello World')
 
     useEffect(() => {
-        getTestId('testId')
+       // getTestId('testId')
     })
 
     const getTestId = useCallback(async (memId) => {
