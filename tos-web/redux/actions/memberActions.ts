@@ -13,6 +13,6 @@ export const memberListRequest = () : MemberListRequset => {
 export const MemberListSuccess = (payload: MemberList): MemberListSucceess => {
     return {
         type : MemberType.MEMBER_LIST_SUCCESS,
-        payload,
+        payload
     }
 }

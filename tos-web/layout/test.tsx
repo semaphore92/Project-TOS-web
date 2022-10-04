@@ -9,8 +9,10 @@ const { memberList } = useSelector(
     (state: RootStateInterface) => state.memberReducer
 )
 
+const dispatch = useDispatch()
+
 useEffect(() => {
-    useDispatch(memberListRequest())
+    dispatch(memberListRequest())
 },[])
 
 const _Copyright = (props: unknown) => {

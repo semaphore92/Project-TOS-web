@@ -1,18 +1,18 @@
 import {HYDRATE} from 'next-redux-wrapper'
-import { MemberStatus , MemberListAction, MemberType } from '../type/memberType'
+import { MemberState , MemberListAction, MemberType } from '../type/memberType'
 
-export const initialState: MemberStatus = {
+export const initialState: MemberState = {
     memberList : null,
   }
 
 interface HydratePayload {
-    memberState : MemberStatus
+    memberState : MemberState
 }
 
 const memberReducer = (
     state = initialState,
     action: MemberListAction | { type: typeof HYDRATE; payload : HydratePayload },
-): MemberStatus => {
+): MemberState => {
     switch (action.type) {
         case HYDRATE:
           return { ...state, ...action.payload.memberState }

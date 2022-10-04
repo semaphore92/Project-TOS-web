@@ -8,7 +8,7 @@ export interface MemberList {
     aa : String
 }
 
-export interface MemberStatus {
+export interface MemberState {
     memberList: any | MemberList[] | null 
     error? : null | Error
 }
@@ -20,7 +20,7 @@ export interface MemberListRequset {
 }
 
 export interface MemberListSucceess {
-    type: MemberType.MEMBER_LIST_SUCCESS,
+    type: MemberType.MEMBER_LIST_SUCCESS
     payload : MemberList
 }
 

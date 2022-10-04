@@ -1,5 +1,5 @@
-import { MemberType } from './memberType'
+import { MemberType, MemberState } from './memberType'
 
 export interface RootStateInterface {
-    memberReducer : MemberType
+    memberReducer : MemberState
 }
