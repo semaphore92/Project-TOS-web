@@ -1,7 +1,18 @@
-import {MemberListRequset,MemberType} from '../type/memberType'
+import {MemberListRequset,
+        MemberType,
+        MemberList,
+        MemberListSucceess
+    } from '../type/memberType'
 
-export const memberListRequset = () : MemberListRequset => {
+export const memberListRequest = () : MemberListRequset => {
     return{
-        type : MemberType.MEMBER_LIST_REQUEST
+        type : MemberType.MEMBER_LIST_REQUEST,
+    }
+}
+
+export const MemberListSuccess = (payload: MemberList): MemberListSucceess => {
+    return {
+        type : MemberType.MEMBER_LIST_SUCCESS,
+        payload,
     }
 }
